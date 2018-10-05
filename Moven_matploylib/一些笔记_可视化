@@ -1,0 +1,54 @@
+一.线条的颜色：
+1.'B'	蓝色;'G'	绿色;'R'	红;'C'	青色;'M'	品红;'Y'	黄色;'BLACK'	黑色;'W'	白色;
+2.任意颜色指令:color ='#xxxxxx'
+3.作为特殊颜色“Cn”，其中n是指定当前活动颜色周期中的第n个颜色的数字0-9指令：color ='Cx'，大写字母’c'
+二.marker(标记)
+"."	点;
+","	像素;
+"o"	圈;
+"v"	triangle_down;
+"^"	triangle_up;
+"<"	triangle_left
+">"	triangle_right;
+"1"	tri_down;
+"2"	tri_up
+"3"	tri_left
+"4"	tri_right
+"8"	八角形
+"s"	广场
+"p"	五角大楼
+"P"	加（填充）
+"*"	星
+"h"	hexagon1
+"H"	hexagon2
+"+"	加
+"x"	X
+"X"	x（填充）
+"D"	钻石
+"d"	thin_diamond
+"|"	U电源
+"_"	HLINE
+三.标记的大小：’s'
+四.标记的透明度：alpha
+以上均在命令：plt.XXX(,c='x',s=20,marker='.',alpha=0.5)表示出来
+五.导入csv文件（前提必须将文件放入’C:/Users/Administrator/PycharmProjects/untitled/‘文件夹下，下面命令才可以使用)
+导入csv模块：
+import csv
+读文件：
+csv_reader=csv.reader(open('文件名.csv', encoding='utf-8'))
+for row in csv_reader:
+    print(row)
+例子：import csv
+csv_reader=csv.reader(open('可视化数据.csv', encoding='utf-8'))
+for row in csv_reader:
+    print(row)
+写文件：（例子）
+list=['1', '2', '3', '4']
+out=open('data.csv','w', newline='' )
+csv_writer=csv.writer(out, dialect='excel')
+csv_writer.writerow(list)
+六.线型
+-      实线
+--     短线
+-.     短点相间线
+：     虚点线

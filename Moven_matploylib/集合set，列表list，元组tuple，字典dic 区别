@@ -1,0 +1,165 @@
+numpy是python科学计算的基础包，他提供多维数组对象，基于数组的各种派生对象（array，matrix）除此之外还提供各种各样的加快数组操作的例程，
+     包括数学基本计算，逻辑，图形操作，排序，选择，输入输出，离散傅里叶变换，基础先线性代数，基础统计操作，随机仿真等额
+numpy的核心是ndarray对象，一方面，ndarray对象封装了可以包含相同数据类型的多维数组，另一方面，为获得更好的性能，zaindarray上的操作都是在编译过的代码上执行的。
+
+
+pandas是python的一个数据分析报，用于大规模数据的处理该工具是为了解决数据分析任务而创建的，pandas纳入了大量库和一些标准的数据模型，提供了高效的操作大型数据集所
+      需的工具，pandas提供了大量能使我们快速便捷的处理数据的函数和方法，你会发现，pandas是使python成为强大而高效的数据分析环境的重要因素之一
+
+pandas数据结构：1.series：一维数组，与numpy中的一维array类似，二者与python基本的数据结构list(表格)也很相近，其区别是：list
+                        中的元素可以使不同的数据类型，二array和series中则只允许存储相同的数据类型，这样可以更有效的使用内存，提高运算效率
+               2.Time-Series：以时间为索引的Series
+               3.DataFrame:二维的表格型数据结构，很多功能与R语言中的data。frame类似，可以将DataFrame理解为Series的容器
+               4.Panel:三位数组，可以理解为DataFrame的容器
+
+
+python中列表list，元组tuple，字典dict，集合set介绍
+序列
+序列的两个特点：
+1.索引操作符，从序列中抓取一个特定项目
+2.和切片操作符，获取序列的一个切片，即一部分序列
+
+Python一些内置函数
+1、cmp(A, B)：比较可为list、tuple等的A、B，A>B为1，A=B为0，小于为-1
+2、len(obj)： 计算元素个数。
+3、max(obj)：返回元素最大值。
+4、min(obj)：返回元素最小值。
+5、reversed(obj): 对元素进行翻转
+6、enumerate(obj): 遍历list的元素，返回序号及其对应的元素 for x，y in list：
+7、zip():打包成tuple（元组），然后返回由这些tuples组成的list（列表）
+列表、元组和字符串都是序列，字符串是字符的序列，列表和元祖是任意类型的序列
+
+列表list，用中括号“[ ]”表示
+1.任意对象的有序集合
+列表是一组任意类型的值，按照一定顺序组合而成的
+2.通过偏移读取
+组成列表的值叫做元素(Elements)。每一个元素被标识一个索引，第一个索引是0，序列的功能都能实现
+3.可变长度，异构以及任意嵌套
+列表中的元素可以是任意类型，甚至是列表类型，也就是说列表可以嵌套
+4.可变的序列
+支持索引、切片、合并、删除等等操作，它们都是在原处进行修改列表
+5.对象引用数组
+列表可以当成普通的数组，每当用到引用时，Python总是会将这个引用指向一个对象，所以程序只需处理对象的操作。当把一个对象赋给一个数据结构元素或变量名时，Python总是会存储对象的引用，而不是对象的一个拷贝
+ L.append(var)              # 追加元素，加在最后
+ L.insert(index,var)        # 在index的位置追加元素，位置就是索引
+ L.pop(var)                 # 从list中删除最后一个元素，并返回该元素
+ L.remove(var)              # 删除第一次出现的该元素
+ L.count(var)               # 该元素在列表中出现的个数
+ L.index(var)               # 该元素的位置（索引号）,无则抛异常
+ L.extend(list)             # 追加list，即合并list到L上，两个列表合并
+ L.sort()                   # 排序
+ L.reverse()                # 原地翻转列表，从前到后变成从后向前
+ l = [1,2,3,4,['hello','johnny'],'blog.csdn.net/z_johnny']   # 创建list
+ l[1:5:2]                   # list的切片，切一部分，范围为索引[1，5)，即1、2、3、4不包括5，隔2取1个值 l[1:5:2] == [2, 4]
+ l[1]                       # list的索引，左1索引为0，右1索引为-1，l[1] == 2
+ l[4][1]                    # 列表支持嵌套，l[4][1] == 'johnny'
+list的官方内置函数可用 dir(list) 与 help(list) 命令进行查看
+
+元祖tuple，用小括号“( )”表示
+1.任意对象的有序集合
+与列表相同
+2.通过偏移存取
+与列表相同
+3.属于不可变序列类型
+类似于字符串，但元组是不可变的，不支持在列表中任何原处修改操作，不支持任何方法调用
+4.固定长度、异构、任意嵌套
+固定长度即元组不可变，在不被拷贝的情况下长度固定，其他同列表
+5.对象引用的数组
+与列表相似，元祖是对象引用的数组
+
+和list相比
+1.比列表操作速度快
+2.对数据“写保护“
+3.可用于字符串格式化中
+4.可作为字典的key
+t.count(var)               # 该元素在元组中出现的个数
+ t.index(var)               # 该元素的位置（索引号）,无则抛异常
+ t = (1,2,3,4,['hello','johnny'],'blog.csdn.net/z_johnny')   # 创建tuple
+ tu = (5,)                  # 只含有一个元素的元祖，必须加逗号“,”
+ t[1:5:2]                   # tuple的切片，切一部分，范围为索引[1，5)，即1、2、3、4不包括5，隔2取1个值 t[1:5:2]== (2, 4)
+ t[1]                       # tuple的索引，左1索引为0，右1索引为-1，t[1] == 2
+ t[4][1]                    # 同列表一样支持嵌套，t[4][1] == 'johnny'
+tuple的官方内置函数可用dir(tuple)与help(tuple) 命令进行查看
+
+
+字典dict，用大括号“{key，value}”表示
+1.通过键而不是偏移量来读取
+字典就是一个关联数组，是一个通过关键字索引的对象的集合，使用键-值（key-value）进行存储，查找速度快
+2.任意对象的无序集合
+字典中的项没有特定顺序，以“键”为象征
+3.可变长、异构、任意嵌套
+同列表，嵌套可以包含列表和其他的字典等
+4.属于可变映射类型
+因为是无序，故不能进行序列操作，但可以在远处修改，通过键映射到值。字典是唯一内置的映射类型（键映射到值的对象）
+5.对象引用表
+字典存储的是对象引用，不是拷贝，和列表一样。字典的key是不能变的，list不能作为key，字符串、元祖、整数等都可以
+
+和list比较，dict有以下几个特点：
+1.查找和插入的速度极快，不会随着key的增加而增加
+2.需要占用大量的内存，内存浪费多
+而list相反：
+1.查找和插入的时间随着元素的增加而增加
+2.占用空间小，浪费内存很少
+所以，dict是用空间来换取时间的一种方法
+d = {'Name': 'Johnny', 'Address':'blog.csdn.net/z_johnny'}  # 创建dict
+d['Name']                      # 找出key为Name的值 d['Name'] == 'Johnny'
+d['Name'] = hello              # 更新key为Name的值 Name对应的值从Johnny改为hello
+del d['Address']               # 删除key为Name的值和该key d = {'Name': 'Johnny'}
+d.clear()                      # 删除字典d中的所有元素 d = {}
+d.pop('Name')                  # 删除字典d中key为'Name'的值和该键
+d.copy()                       # 返回字典d的浅复制副本
+d.fromkeys(S[,v])              # 创建一个新的字典，设置键为seq 和值为value
+d.get(key, default=None)       # 返回该键key的值，若没有该键，则返回None
+d.has_key(key)                 # 如果在字典d中存在键key，则返回true，否则返回 false
+d.items()                      # 返回字典的（键，值）元组对的列表
+d.keys()                       # 返回字典的键的列表
+d.values()                     # 返回字典d的值列表
+d.setdefault(key, default=None)# 类似get()
+                               # 但会设定d[key]=default 如果key不在字典d中
+d.update(d2)                   # 将字典d2的键值对增加到字典d中
+d.iteritems()                  # （键，值）项的一个迭代器
+d.iterkeys()                   # 字典d中键的一个迭代器
+d.itervalues()                 # 字典d中值的一个迭代器
+d.popitem()                    # 删除元组返回键、值，若字典d为空会报key错
+d.viewitems()                  # 像对象一样提供字典d中项的一个视图
+d.viewkeys()                   # 像对象一样提供字典d中key的一个视图
+d.viewvalues()                 # 像对象一样提供字典d中value的一个视图
+dict的官方内置函数可用dir(dict)与help(dict) 命令进行查看
+
+集合set，用小括号“( )”表示
+1.是一组key的集合，但不存储value，并且key不能重复
+创建一个set，需要提供一个list作为输入集合,s = set([1,2,3]),注意，传入的参数 [1, 2, 3] 是一个list，而显示的 set([1, 2, 3]) 只是告诉你这个set内部有1，2，3这3个元素，显示的[ ]不表示这是一个list
+2.重复元素在set中自动被过滤
+set可以看成数学意义上的无序和无重复元素的集合，因此，两个set可以做数学意义上的交集、并集等操作
+
+还有一种集合是forzenset( )，是冻结的集合，它是不可变的，存在哈希值，好处是它可以作为字典的key，也可以作为其它集合的元素。缺点是一旦创建便不能更改，没有add，remove方法
+
+和dict对比
+ 1.set和dict的唯一区别仅在于没有存储对应的value
+ 2.set的原理和dict一样，同样不可以放入可变对象，因为无法判断两个可变对象是否相等，也就无法保证set内部“不会有重复元素”
+ s = set([1,2,3])            # 创建一个数值set，有1，2，3三个元素s == set([1, 2, 3])
+se = set('Hello')           # 创建一个唯一字符的集合s == set(['H', 'e', 'l', 'o'])
+a = s | se                  # s 和 se 的并集 set([1, 2, 3, 'e', 'H', 'l', 'o'])
+b = s & se                  # s 和 se 的交集 set([]) 没有相同项为空
+c = s – se                 # 求差集（项在s中，但不在se中） set([1, 2, 3])
+d = s ^ se                  # 对称差集（项在s或se中，但不会同时出现在二者中）
+                            # set([1, 2, 3, 'e', 'H', 'l', 'o'])
+s.issubset(t)               # 如果s是t的子集,则返回True,否则返回False
+s.issuperset(t)             # 如果t是s的超集,则返回True,否则返回False
+s.union(t)                  # 返回一个新集合,该集合是s和t的并集
+s.intersection(t)           # 返回一个新集合,该集合是s和t的交集
+s.difference(t)             # 返回一个新集合,该集合是 s 的成员,但不是 t 的成员
+s.symmetric_difference(t)   # 返回一个新集合,该集合是s或t的成员,但不是s和t共有的成员
+s.copy()                    # 返回一个新集合,它是集合s的浅复制
+s.update(t)                 # 用t中的元素修改s，即s现在包含s或t的成员
+s.intersection_update(t)    # s中的成员是共同属于s和t中的元素
+s.difference_update(t)      # s中的成员是属于s但不包含在t中的元素
+s.symmetric_difference_update(t)    # s中的成员更新为那些包含在s或t中，
+                                    # 但不是s和t共有的元素
+s.add(obj)                  # 在集合s中添加对象obj
+s.remove(obj)               # 从集合s中删除对象obj，如果obj不是集合s中的元素
+                            # （obj not in s），将引发KeyError
+s.discard(obj)              # 如果obj是集合s中的元素，从集合s中删除对象obj
+s.pop()                     # 删除集合是中的任意一个对象，并返回它
+s.clear()                   # 删除集合s中的所有元素
+set的官方内置函数可用dir(set)与help(set) 命令进行查看
